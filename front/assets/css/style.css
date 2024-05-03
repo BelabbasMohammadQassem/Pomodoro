@@ -1,0 +1,47 @@
+:root {
+    --pomodoro-color: #11191E;
+    --short-break-color: #1b3647;
+    --long-break-color: #1d5273;
+}
+
+body {
+    padding-bottom: 50px;
+}
+
+.hidden {
+    display: none;
+}
+
+.line-through {
+    text-decoration: line-through;
+}
+
+#time {
+    font-size: 8em;
+    font-weight: bold;
+    text-align: center;
+    font-family: modern;
+}
+
+.form-container {
+    display: flex;
+}
+
+.form-container a {
+    margin-left: 10px;
+    height: 100%;
+}
+
+#no-task-message {
+    font-style: italic;
+}
+
+#row-actions,#row-id,#row-pomodoros {
+    width: 100px;
+}
+
+#row-actions div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}

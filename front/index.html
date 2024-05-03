@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pomodor'O</title>
+
+    <link rel="stylesheet" href="assets/css/pico.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <script src="assets/js/settings.js"></script>
+    <script src="assets/js/notification.js"></script>
+    <script src="assets/js/timer.js"></script>
+    <script src="assets/js/tasks.js"></script>
+    <script src="https://kit.fontawesome.com/e68b5cdee9.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="container">
+        <nav>
+            <ul>
+                <li><strong>Pomodor'O</strong></li>
+            </ul>
+            <ul>
+                <!-- TODO : dev la partie stats ? -->
+                <!-- <li><a href="#">Statistiques</a></li> -->
+            </ul>
+        </nav>
+
+        <main>
+            <article>
+                <div id="time">25:00</div>
+
+                <label for="mode">Qu'est-ce qu'on fait maintenant ?</label>
+                <select id="mode">
+                    <option value="pomodoro" selected>un nouveau pomodoro 💪</option>
+                    <option value="short-break">une courte pause.</option>
+                    <option value="long-break">une longue pause 😴</option>
+                </select>
+
+                <label for="task-select">Sur quelle tâche ?</label>
+                <select id="task-select">
+                    <option value="empty" selected>Aucune tâche disponible, veuillez en ajouter ci-dessous !</option>
+                </select>
+
+                <button id="start">Commencer à travailler !</button>
+                <button id="pause" class="hidden">Mettre le chrono en pause</button>
+            </article>
+
+            <h2>Tâches</h2>
+            <p id="no-task-message">Aucune tâche pour l'instant.<br>Ajoutez-en une en cliquant sur le bouton ci-dessous
+                !</p>
+            <table role="grid" class="hidden">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Titre</th>
+                        <th scope="col">Pomodoros</th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+
+            <template id="row-template">
+                <tr>
+                    <th scope="row" id="row-id">#</th>
+                    <td id="row-title">Titre</td>
+                    <td id="row-pomodoros">#/#</td>
+                    <td id="row-actions">
+                        <div>
+                            <i class="fa-solid fa-check" title="Marquer la tâche comme terminée"></i>
+                            <i class="fa-solid fa-xmark" title="Marquer la tâche comme en cours"></i>
+                            <i class="fa-solid fa-trash" title="Supprimer la tâche"></i>
+                        </div>
+
+                    </td>
+                </tr>
+            </template>
+
+            <button id="add">Ajouter une tâche</button>
+            <form id="task-form" class="hidden">
+                <article>
+
+                    <label for="title">
+                        Titre de la tâche
+                        <input type="text" id="title" name="title" placeholder="Je travaille sur ..." required>
+                    </label>
+
+                    <label for="pomodoros">
+                        Nombre de pomodoros estimé
+                        <div class="form-container">
+                            <input type="text" id="pomodoros" name="pomodoros" value="1" readonly>
+                            <a href="#" role="button" id="plus"><i class="fa-solid fa-plus"></i></a>
+                            <a href="#" role="button" id="minus"><i class="fa-solid fa-minus"></i></a>
+                        </div>
+
+                    </label>
+
+                    <button type="submit">Ajouter</button>
+                    <button id="cancel" type="button" class="secondary">Annuler</button>
+                </article>
+            </form>
+            <button id="delete" class="secondary">Supprimer toutes les tâches</button>
+
+            <h2>À propos</h2>
+            <details>
+                <summary>La méthode Pomodoro</summary>
+                <p>La méthode Pomodoro a été crée par Francesco Cirillo, pour être plus productif au travail ou pour étudier. Son principe consiste à utiliser un minuteur pour découper les tâches à effectuer en intervalles de 25 minutes, séparées par des pauses courtes.</p>
+                <p>Chaque intervalle de temps s'appelle un "Pomodoro", mot italien pour "tomate", forme qu'avait le minuteur de cuisine utilisé par Francesco quand il était étudiant.</p>
+            </details>
+
+            <details>
+                <summary>Comment utiliser cette application ?</summary>
+                <p>Ajoutez les tâches que vous voulez réaliser dans la journée, et estimez le nombre de pomodoros nécessaire pour chaque tâche.</p>
+                <p>Lancez le minuteur, et restez concentré sur la tâche pour les 25 prochaines minutes. Une notification vous avertira quand il sera temps de faire une pause.</p>
+            </details>
+        </main>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,27 @@
+version: "3"
+services:
+  frontend:
+    image: httpd
+    ports:
+      - "8000:80"
+    volumes:
+      - ./front:/usr/local/apache2/htdocs
+      # - type: bind
+      #   source: ./front
+      #   target: /usr/local/apache2/htdocs
+  backend:
+    #image: bdelphin/pomodoro-backend-laravel
+    build: ./back
+    ports:
+      - "8080:80"
+    env_file:
+      - .env
+  db:
+    image: mariadb
+    volumes:
+      - ./DB.sql:/docker-entrypoint-initdb.d/DB.sql
+      # - pomodoro-db:/var/lib/mysql:Z
+    env_file:
+      - .env
+# volumes:
+#   pomodoro-db:
